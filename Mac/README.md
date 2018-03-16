@@ -1,8 +1,6 @@
 # Mac OS
 Tested on version: 10.13.3 (17D102)
 
-## Documents
-
 ### Expand Default Printing Preferences
 The default printing settings are acceptable if you do not need to customize your printing options frequently and therefore have the advanced options collapsed. To force the printing dialog to always show the expanded form with the advanced options, use the following command:
 ```bash
@@ -37,4 +35,14 @@ defaults write com.apple.dock autohide-time-modifier -float 0; killall Dock
 
 # Enable dock animation:
 defaults delete com.apple.dock autohide-time-modifier; killall Dock
+```
+
+### Window Screenshots
+Apple's Grab application allows users to take screenshots very easily. `Shift-Command-3` will take a screenshot of the entire display and save it to the desktop. For users with multiple displays, the screenshots will be saved separately for each display. `Shift-Command-4` will take a selection screenshot of whatever the user selects. Hitting the `Space bar` after the command will enable window screenshot mode, however by default Apple will add a gradient background to the window screenshot. To remove this:
+```bash
+# Disable gradient shadow: 
+defaults write com.apple.screencapture disable-shadow -bool TRUE; killall SystemUIServer
+
+# Enable gradient shadow:
+defaults write com.apple.screencapture disable-shadow -bool FALSE; killall SystemUIServer
 ```
