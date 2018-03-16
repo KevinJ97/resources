@@ -2,6 +2,7 @@
 Tested on version: 10.13.3 (17D102)
 
 ## Documents
+
 ### Expand Default Printing Preferences
 The default printing settings are acceptable if you do not need to customize your printing options frequently and therefore have the advanced options collapsed. To force the printing dialog to always show the expanded form with the advanced options, use the following command:
 ```bash
@@ -10,4 +11,14 @@ defaults write -g PMPrintingExpandedStateForPrint -bool TRUE
 
 # Revert back to collapse by default:
 defaults write -g PMPrintingExpandedStateForPrint -bool FALSE
+```
+
+### Disable Dashboard
+I have not seen anyone use the built in Mac OS Dashboard application unless on accident by pressing the keyboard shortcut. Leaving the dashboard running idle will still take up CPU. To disable the dashboard entirely:
+```bash
+# Disable:
+defaults write com.apple.dashboard mcx-disabled -boolean TRUE; killall Dock
+
+# Enable: 
+defaults write com.apple.dashboard mcx-disabled -boolean FALSE; killall Dock
 ```
